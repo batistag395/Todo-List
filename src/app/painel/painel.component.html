@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="tarefa">
+        <input type="text" [(ngModel)]="tarefa" >
+
+        <button (click)="addTarefa(tarefa )" class="btn">Adicionar</button>
+        <ul>
+            <li *ngFor="let item of items"> 
+                {{ item.text }}
+                <button (click)="removeTarefa(item)">Remover</button> 
+            </li>
+        </ul>
+    </div>
+</div>
