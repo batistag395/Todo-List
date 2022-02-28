@@ -15,8 +15,12 @@ export class PainelComponent implements OnInit {
 
  
   addTarefa(text: string) {
-
+    if(!this.tarefa){
+      return
+    }
+    
     this.items.unshift({text});
+    this.tarefa = ''
 
   }
 
