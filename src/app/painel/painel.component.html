@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="tarefa">
+        <input type="text" [(ngModel)]="tarefa" class="input-bar" [value]="tarefa">
+
+        <button (click)="addTarefa(tarefa )" class="btn">
+
+              <app-icone [icone]="'plus'"></app-icone>
+
+        </button>
+        <ul>
+            <li *ngFor="let item of items"> 
+                {{ item.text }}
+                <button (click)="removeTarefa(item)" class="btn">
+
+                    <app-icone [icone]="'dash'"></app-icone>
+
+                </button> 
+            </li>
+        </ul>
+    </div>
+</div>
