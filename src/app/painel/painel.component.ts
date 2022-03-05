@@ -9,26 +9,26 @@ import { Task } from '../task.interface';
 })
 export class PainelComponent implements OnInit {
 
-  public tarefa;
+  // public tarefa;
 
-  public items: Task[] = [];
+  // public items: Task[] = [];
 
  
-  addTarefa(text: string) {
-    if(!this.tarefa){
-      return
-    }
+  // addTarefa(text: string) {
+  //   if(!this.tarefa){
+  //     return
+  //   }
     
-    this.items.unshift({text});
-    this.tarefa = ''
+  //   this.items.unshift({text});
+  //   this.tarefa = ''
 
-  }
+  // }
 
-  removeTarefa(tarefa: Task){
+  // removeTarefa(tarefa: Task){
 
-    this.items.splice( this.items.indexOf(tarefa), 1 );
+  //   this.items.splice( this.items.indexOf(tarefa), 1 );
 
-  }
+  // }
   
   constructor() { }
 
