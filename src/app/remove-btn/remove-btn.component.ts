@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 import { Task } from '../task.interface';
 
@@ -11,7 +11,7 @@ import { Task } from '../task.interface';
 export class RemoveBtnComponent implements OnInit {
 
   @Input() items: Task[]
-  
+
   removeTarefa(tarefa: Task){
 
     this.items.splice( this.items.indexOf(tarefa), 1 );

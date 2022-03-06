@@ -1,14 +1,12 @@
 <div class="container-btn">
-    
     <ul>
         <li *ngFor="let item of items"> 
             {{ item.text }}
             <button (click)="removeTarefa(item)" class="btn">
     
+                <app-icone [icone]="'dash'"></app-icone>
                 
             </button> 
         </li>
     </ul>
-    <app-icone [icone]="'dash'"></app-icone>
-
 </div>

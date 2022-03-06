@@ -16,7 +16,7 @@ export class AddBtnComponent implements OnInit {
 
   @Output() testItems = new EventEmitter<Task[]>();
   
-  public items: Task[] = [{text: 'item 1'}];
+  public items: Task[] = [];
   //
 
   public addTarefa(text: string) {
