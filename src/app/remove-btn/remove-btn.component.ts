@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Task } from '../task.interface';
 
@@ -12,9 +12,12 @@ export class RemoveBtnComponent implements OnInit {
 
   @Input() items: Task[]
 
+  @Output() remove: EventEmitter<any> = new EventEmitter()
+
   removeTarefa(tarefa: Task){
 
-    this.items.splice( this.items.indexOf(tarefa), 1 );
+    this.remove.emit(this.items.splice( this.items.indexOf(tarefa), 1 ));
+
 
   }
   constructor() { }

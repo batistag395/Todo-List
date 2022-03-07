@@ -9,6 +9,10 @@ import { Task } from '../task.interface';
 })
 export class PainelComponent implements OnInit {
 
+  adiciona(tipo: Task){
+
+    
+  }
   // public tarefa;
 
   // public items: Task[] = [];

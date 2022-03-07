@@ -2,6 +2,7 @@
     <ul style="list-style: none;">
         <li *ngFor="let item of items"> 
             {{ item.text }}
+            
             <button (click)="removeTarefa(item)" class="btn">
     
                 <app-icone [icone]="'dash'"></app-icone>

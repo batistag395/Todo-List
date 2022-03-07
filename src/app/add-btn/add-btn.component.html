@@ -8,7 +8,7 @@
     
             </button>
 
-            <app-remove-btn [items]="items"></app-remove-btn>
+            <app-remove-btn [items]="items" (remove)="remove($event)"></app-remove-btn>
       <!-- <ul>
             <li *ngFor="let item of items"> 
                   {{ item.text }}

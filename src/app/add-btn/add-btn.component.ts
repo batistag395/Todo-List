@@ -10,7 +10,11 @@ import { Task } from '../task.interface';
 })
 export class AddBtnComponent implements OnInit {
 
-  @Output() public adcItem: EventEmitter<Task> = new EventEmitter()
+  public remove(tipo: string){
+    
+  }
+
+  @Output() public adiciona: EventEmitter<any> = new EventEmitter()
 
   public tarefa;
 
@@ -21,14 +25,12 @@ export class AddBtnComponent implements OnInit {
 
   public addTarefa(text: string) {
 
-    
     if(!this.tarefa){
       return
     }
     
-    this.adcItem.emit()
+    this.adiciona.emit(this.items.unshift({text}))
     
-    this.items.unshift({text});
     this.tarefa = ''
 
   }
