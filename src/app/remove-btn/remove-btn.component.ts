@@ -12,6 +12,7 @@ export class RemoveBtnComponent implements OnInit {
 
   @Input() items: Task[]
 
+
   @Output() remove: EventEmitter<any> = new EventEmitter()
 
   removeTarefa(tarefa: Task){

@@ -1,13 +1,20 @@
 <div class="container-btn">
     <ul style="list-style: none;">
         <li *ngFor="let item of items"> 
+
             {{ item.text }}
-            
+                          
             <button (click)="removeTarefa(item)" class="btn">
     
                 <app-icone [icone]="'dash'"></app-icone>
                 
             </button> 
+        </li>
+
+        <li *ngIf="items.length < 1" class="li">
+
+            No task's here!
+
         </li>
     </ul>
 </div>
