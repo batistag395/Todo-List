@@ -2,23 +2,30 @@
 
     <ul style="list-style: none;">
 
-        <li *ngFor="let item of items"> 
+        <li *ngFor="let item of items">
 
-            {{ item.text }}
-                          
+            <input [id]="item.text" type="checkbox" (change)="item.done = !item.done" (click)="completeItem()"
+                [checked]="item.done">
+
+            <label [for]="item.text" [ngClass]="{complete: item.done}">
+                {{ item.text }}
+            </label>
+
+
             <button (click)="removeTarefa(item)" class="btn">
-    
+
                 <app-icone [icone]="'dash'"></app-icone>
-                
-            </button> 
+
+            </button>
+
         </li>
 
-        <li *ngIf="items.length < 1" class="li">
+        <li *ngIf="items.length == 0" class="li">
 
             No task's here!
 
         </li>
 
     </ul>
-    
+
 </div>

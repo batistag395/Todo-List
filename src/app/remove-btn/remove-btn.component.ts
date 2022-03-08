@@ -10,6 +10,11 @@ import { Task } from '../task.interface';
 })
 export class RemoveBtnComponent implements OnInit {
 
+
+  editable: boolean = true
+
+  @Output() update = new EventEmitter<object>();
+
   @Input() items: Task[]
 
 
@@ -19,8 +24,24 @@ export class RemoveBtnComponent implements OnInit {
 
     this.remove.emit(this.items.splice( this.items.indexOf(tarefa), 1 ));
 
+  }
+
+  completeItem() {
+
+    this.update.emit({
+
+      item: this.items,
+
+    });
+ 
+  }
+
+  isEditable() {
+
+    this.editable = !this.editable;
 
   }
+
   constructor() { }
 
   ngOnInit(): void {
