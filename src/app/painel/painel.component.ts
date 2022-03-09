@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Task } from '../task.interface';
 
 
@@ -9,30 +9,32 @@ import { Task } from '../task.interface';
 })
 export class PainelComponent implements OnInit {
 
-  adiciona(tipo: Task){
+  public indexItem = new EventEmitter();
 
+  public findItem: number = 0
+
+  public items: Task[] = [{text: 'item 1'}];
+
+  adiciona(tarefa: Task){
+
+    this.items.unshift(tarefa)
     
   }
-  // public tarefa;
+  remove(tarefa: Task){
 
-  // public items: Task[] = [];
+    this.items.splice( this.items.indexOf(tarefa), 1 )
+  }
 
- 
-  // addTarefa(text: string) {
-  //   if(!this.tarefa){
-  //     return
-  //   }
-    
-  //   this.items.unshift({text});
-  //   this.tarefa = ''
+  editTarefa(tarefa : Task)
+  {
+    this.findItem = this.items.indexOf(tarefa);
+  }
 
-  // }
-
-  // removeTarefa(tarefa: Task){
-
-  //   this.items.splice( this.items.indexOf(tarefa), 1 );
-
-  // }
+  saveTarefa(editItem : string)
+  {
+    this.items[this.findItem].text = editItem;
+    this.indexItem.emit(this.items);
+  }
   
   constructor() { }
 

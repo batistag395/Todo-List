@@ -1,19 +1,11 @@
 <div class="tarefa">
+      
+            <input type="text" [(ngModel)]="tarefa" class="input-bar" [value]="tarefa" placeholder="Add a task">
+            
+            <button (click)="addTarefa(tarefa)" class="btn">
 
-    <input type="text" [(ngModel)]="tarefa" class="input-bar" [value]="tarefa" placeholder="Add a task">
-    
-            <button (click)="[addTarefa(tarefa)]" class="btn">
-    
                   <app-icone [icone]="'plus'"></app-icone>
-    
-            </button>
 
-            <app-remove-btn [items]="items" (remove)="remove($event)"></app-remove-btn>
-      <!-- <ul>
-            <li *ngFor="let item of items"> 
-                  {{ item.text }}
-                  
-            </li>
-      </ul>       -->
+            </button>
 </div>
 

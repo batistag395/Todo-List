@@ -4,28 +4,61 @@
 
         <li *ngFor="let item of items">
 
-            <input [id]="item.text" type="checkbox" (change)="item.done = !item.done" (click)="completeItem()"
+            <input [id]="item.text" 
+
+                type="checkbox" 
+
+                (change)="item.done = !item.done" 
+
+                (click)="completeItem()"
+
                 [checked]="item.done">
 
-            <label [for]="item.text" [ngClass]="{complete: item.done}">
+            <label [for]="item.text" 
+
+            [ngClass]="{complete: item.done}">
+
                 {{ item.text }}
+                
             </label>
 
-
-            <button (click)="removeTarefa(item)" class="btn">
-
+            <button (click)="removeTarefa(tarefa)" class="btn">
+        
                 <app-icone [icone]="'dash'"></app-icone>
-
+        
             </button>
 
-        </li>
+            <button class="edit-button" (click)= "editTarefa(item)">
+                Editar
+            </button>
 
+            
+        </li>
+        
         <li *ngIf="items.length == 0" class="li">
-
+            
             No task's here!
-
+            
         </li>
-
+        <ng-container *ngIf="this.isEditing == true" >
+            <div>
+              <input type="text" [(ngModel)]= "">
+              <button (click)="saveTarefa(editionTask)">Salvar</button>
+            </div>
+        </ng-container>
+        
     </ul>
+    <!-- <form *ngIf="isEditing" (ngSubmit)="isEditable()"> 
+
+        <input placeholder="Edit a task" #editedItem name="text" [(ngModel)]="items" [value]="tarefa.text">
+
+        <button *ngIf="isEditing" (click)="isEditable()">editar</button>
+        
+        <button class="btn btn-save" (click)="saveItem(tarefa.text)">
+            
+            Salvar
+            
+        </button>
+    </form> -->
 
 </div>

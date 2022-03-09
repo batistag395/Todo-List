@@ -2,6 +2,8 @@
     <div class="tarefa">
 
        <app-add-btn (adiciona)="adiciona($event)"></app-add-btn> 
+       <app-remove-btn [items]="items" (remove)="remove($event)"></app-remove-btn>
+
         
     </div>
 </div>

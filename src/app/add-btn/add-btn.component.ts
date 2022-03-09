@@ -10,9 +10,7 @@ import { Task } from '../task.interface';
 })
 export class AddBtnComponent implements OnInit {
 
-  public remove(tipo: string){
-    
-  }
+  
 
   @Output() public adiciona: EventEmitter<any> = new EventEmitter()
 
@@ -20,8 +18,9 @@ export class AddBtnComponent implements OnInit {
 
   @Output() testItems = new EventEmitter<Task[]>();
   
-  public items: Task[] = [];
-  //
+  
+
+  //definir como input, no pai definir propriedade item com unshift no pai
 
   public addTarefa(text: string) {
 
@@ -29,7 +28,7 @@ export class AddBtnComponent implements OnInit {
       return
     }
     
-    this.adiciona.emit(this.items.unshift({text}))
+    this.adiciona.emit({text})
     
     this.tarefa = ''
 

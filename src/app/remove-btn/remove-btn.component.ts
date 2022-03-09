@@ -10,36 +10,45 @@ import { Task } from '../task.interface';
 })
 export class RemoveBtnComponent implements OnInit {
 
-
-  editable: boolean = true
+  @Input() tarefa: Task
 
   @Output() update = new EventEmitter<object>();
 
   @Input() items: Task[]
 
-
   @Output() remove: EventEmitter<any> = new EventEmitter()
 
   removeTarefa(tarefa: Task){
 
-    this.remove.emit(this.items.splice( this.items.indexOf(tarefa), 1 ));
+    this.remove.emit(tarefa);
 
   }
 
   completeItem() {
 
-    this.update.emit({
-
-      item: this.items,
-
-    });
+    this.update.emit({item: this.items});
  
   }
 
-  isEditable() {
+  @Output() editItem: EventEmitter<Task> = new EventEmitter();
+  @Output() saveItem: EventEmitter<Task> = new EventEmitter();
 
-    this.editable = !this.editable;
+  public isEditing : Boolean = false;
+  public editionTask : string = "";
 
+  editTarefa(tarefa: Task)
+  {
+    this.isEditing = true;
+    this.editItem.emit(tarefa)
+
+  }
+
+  saveTarefa(editItem : Task)
+  {
+    if (!editItem) return;
+
+    this.saveItem.emit(editItem);
+    this.isEditing = false;
   }
 
   constructor() { }
