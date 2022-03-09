@@ -10,6 +10,8 @@ import { Task } from '../task.interface';
 })
 export class RemoveBtnComponent implements OnInit {
 
+  @Input() indexItem = new EventEmitter()
+
   @Input() tarefa: Task
 
   @Output() update = new EventEmitter<object>();
@@ -17,6 +19,8 @@ export class RemoveBtnComponent implements OnInit {
   @Input() items: Task[]
 
   @Output() remove: EventEmitter<any> = new EventEmitter()
+
+  public editionItem : string = "";
 
   removeTarefa(tarefa: Task){
 
@@ -30,24 +34,24 @@ export class RemoveBtnComponent implements OnInit {
  
   }
 
-  @Output() editItem: EventEmitter<Task> = new EventEmitter();
-  @Output() saveItem: EventEmitter<Task> = new EventEmitter();
+
+  @Output() editItem =new EventEmitter();
+  
+  @Output() saveItem= new EventEmitter();
 
   public isEditing : Boolean = false;
-  public editionTask : string = "";
 
   editTarefa(tarefa: Task)
   {
     this.isEditing = true;
     this.editItem.emit(tarefa)
-
   }
 
-  saveTarefa(editItem : Task)
+  saveTarefa(edition : string)
   {
-    if (!editItem) return;
+    if (!edition) return;
 
-    this.saveItem.emit(editItem);
+    this.saveItem.emit(edition);
     this.isEditing = false;
   }
 

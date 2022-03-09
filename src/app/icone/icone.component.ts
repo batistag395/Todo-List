@@ -11,6 +11,12 @@ export class IconeComponent implements OnInit {
 
   public plus: string
 
+  public check: string
+
+  public edit: string
+
+  public edit_fill: string
+
   @Input() public icone: string
 
   constructor() { }

@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Task } from '../task.interface';
+import { RemoveBtnComponent } from '../remove-btn/remove-btn.component';
 
 
 @Component({
@@ -18,8 +19,11 @@ export class PainelComponent implements OnInit {
   adiciona(tarefa: Task){
 
     this.items.unshift(tarefa)
+
+    this.indexItem.emit(this.items)
     
   }
+  
   remove(tarefa: Task){
 
     this.items.splice( this.items.indexOf(tarefa), 1 )
@@ -30,9 +34,9 @@ export class PainelComponent implements OnInit {
     this.findItem = this.items.indexOf(tarefa);
   }
 
-  saveTarefa(editItem : string)
+  saveTarefa(edition : string)
   {
-    this.items[this.findItem].text = editItem;
+    this.items[this.findItem].text = edition;
     this.indexItem.emit(this.items);
   }
   

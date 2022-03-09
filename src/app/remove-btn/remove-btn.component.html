@@ -28,8 +28,10 @@
         
             </button>
 
-            <button class="edit-button" (click)= "editTarefa(item)">
-                Editar
+            <button class="btn" (click)= "editTarefa(tarefa)">
+               
+                <app-icone [icone]="'edit'"></app-icone>
+
             </button>
 
             
@@ -42,23 +44,15 @@
         </li>
         <ng-container *ngIf="this.isEditing == true" >
             <div>
-              <input type="text" [(ngModel)]= "">
-              <button (click)="saveTarefa(editionTask)">Salvar</button>
+              <input type="text" [(ngModel)]= "editionItem">
+              <button (click)="saveTarefa(editionItem)" class="btn">
+                
+                    <app-icone [icone]="'check'"></app-icone>
+
+                </button>
             </div>
         </ng-container>
         
     </ul>
-    <!-- <form *ngIf="isEditing" (ngSubmit)="isEditable()"> 
-
-        <input placeholder="Edit a task" #editedItem name="text" [(ngModel)]="items" [value]="tarefa.text">
-
-        <button *ngIf="isEditing" (click)="isEditable()">editar</button>
-        
-        <button class="btn btn-save" (click)="saveItem(tarefa.text)">
-            
-            Salvar
-            
-        </button>
-    </form> -->
-
+    
 </div>
