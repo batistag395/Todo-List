@@ -7,11 +7,8 @@
             <input [id]="item.text" 
 
                 type="checkbox" 
-
                 (change)="item.done = !item.done" 
-
                 (click)="completeItem()"
-
                 [checked]="item.done">
 
             <label [for]="item.text" 
@@ -28,7 +25,7 @@
         
             </button>
 
-            <button class="btn" (click)= "editTarefa(tarefa)">
+            <button class="btn" (click)="editTask(item)">
                
                 <app-icone [icone]="'edit'"></app-icone>
 
@@ -42,17 +39,24 @@
             No task's here!
             
         </li>
-        <ng-container *ngIf="this.isEditing == true" >
-            <div>
-              <input type="text" [(ngModel)]= "editionItem">
-              <button (click)="saveTarefa(editionItem)" class="btn">
-                
-                    <app-icone [icone]="'check'"></app-icone>
+        <li>
 
-                </button>
-            </div>
-        </ng-container>
-        
+            <div *ngIf="this.isEditing == true" >
+    
+                <div>
+    
+                  <input type="text" [(ngModel)]= "editionItem" class="input-bar">
+    
+                    <button (click)="saveTarefa(editionItem)" class="btn">
+                    
+                        <app-icone [icone]="'check'"></app-icone>
+    
+                    </button>
+                    
+                </div>
+            </div>   
+        </li>
+
     </ul>
     
 </div>
