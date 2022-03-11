@@ -1,8 +1,12 @@
 <div class="container">
-    <div class="tarefa">
-
-       <app-add-btn (adiciona)="adiciona($event)"></app-add-btn> 
-       <app-remove-btn [items]="items" (remove)="remove($event)" (editItem)="editTarefa($event)" (saveItem)="saveTarefa($event)"></app-remove-btn>
-
-    </div>
+  <div class="tarefa">
+    <app-topo></app-topo>
+    <app-add-item (adicionar)="adicionar($event)"></app-add-item>
+    <app-lista-item
+      [items]="items"
+      (remover)="remover($event)"
+      (editarItem)="editarTarefa($event)"
+      (salvarItem)="salvarTarefa($event)"
+    ></app-lista-item>
+  </div>
 </div>
