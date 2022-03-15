@@ -6,7 +6,6 @@ import { TopoComponent } from './topo/topo.component';
 import { PainelComponent } from './painel/painel.component';
 import { FormsModule } from '@angular/forms';
 import { IconeComponent } from './icone/icone.component';
-import { ItemComponent } from './item/item.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { ListaItemComponent } from './lista-item/lista-item.component';
 @NgModule({
@@ -15,7 +14,6 @@ import { ListaItemComponent } from './lista-item/lista-item.component';
     TopoComponent,
     PainelComponent,
     IconeComponent,
-    ItemComponent,
     ListaItemComponent,
     AddItemComponent,
   ],

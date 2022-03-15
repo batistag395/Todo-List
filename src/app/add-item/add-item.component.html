@@ -4,6 +4,7 @@
     [(ngModel)]="tarefa"
     class="input-bar"
     [value]="tarefa"
+    (keyup.enter)="addTarefa(tarefa)"
     placeholder="Add a task"
   />
 

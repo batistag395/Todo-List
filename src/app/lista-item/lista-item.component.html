@@ -1,4 +1,4 @@
-<div class="container-btn">
+<div>
   <ul style="list-style: none">
     <li *ngFor="let item of items">
       <input
@@ -17,7 +17,7 @@
         <app-icone [icone]="'dash'"></app-icone>
       </button>
 
-      <button class="btn" (click)="editarTarefa(item)">
+      <button (click)="editarTarefa(item)" class="btn">
         <app-icone [icone]="'edit'"></app-icone>
       </button>
     </li>
@@ -26,7 +26,12 @@
     <li>
       <div *ngIf="isEditing">
         <div>
-          <input type="text" [(ngModel)]="itemEditado" class="input-bar" />
+          <input
+            type="text"
+            [(ngModel)]="itemEditado"
+            class="input-bar"
+            (keyup.enter)="salvarTarefa(itemEditado)"
+          />
 
           <button (click)="salvarTarefa(itemEditado)" class="btn">
             <app-icone [icone]="'check'"></app-icone>
