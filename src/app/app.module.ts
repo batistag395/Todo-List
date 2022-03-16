@@ -6,25 +6,19 @@ import { TopoComponent } from './topo/topo.component';
 import { PainelComponent } from './painel/painel.component';
 import { FormsModule } from '@angular/forms';
 import { IconeComponent } from './icone/icone.component';
-import { ItemComponent } from './item/item.component';
-import { AddBtnComponent } from './add-btn/add-btn.component';
-import { RemoveBtnComponent } from './remove-btn/remove-btn.component';
-
+import { AddItemComponent } from './add-item/add-item.component';
+import { ListaItemComponent } from './lista-item/lista-item.component';
 @NgModule({
   declarations: [
     AppComponent,
     TopoComponent,
     PainelComponent,
     IconeComponent,
-    ItemComponent,
-    AddBtnComponent,
-    RemoveBtnComponent
+    ListaItemComponent,
+    AddItemComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

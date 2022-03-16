@@ -1,27 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-icone',
   templateUrl: './icone.component.html',
-  styleUrls: ['./icone.component.scss']
+  styleUrls: ['./icone.component.scss'],
 })
-export class IconeComponent implements OnInit {
+export class IconeComponent {
+  dash: string;
+  plus: boolean = false;
+  dash_fill: string;
+  plus_fill: string;
+  check: string;
+  check_fill: string;
+  edit: string;
+  edit_fill: string;
+  @Input() icone: string;
+  @Output() iconeMudado = new EventEmitter();
 
-  public dash: string
-
-  public plus: string
-
-  public check: string
-
-  public edit: string
-
-  public edit_fill: string
-
-  @Input() public icone: string
-
-  constructor() { }
-
-  ngOnInit(): void {
+  mudarIcone() {
+    this.iconeMudado.emit();
   }
-
 }

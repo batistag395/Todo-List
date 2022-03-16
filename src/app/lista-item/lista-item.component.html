@@ -1,0 +1,43 @@
+<div>
+  <ul style="list-style: none">
+    <li *ngFor="let item of items">
+      <input
+        [id]="item.text"
+        type="checkbox"
+        (change)="item.done = !item.done"
+        (click)="itemFinalizado()"
+        [checked]="item.done"
+      />
+
+      <label [for]="item.text" [ngClass]="{ complete: item.done }">
+        {{ item.text }}
+      </label>
+
+      <button (click)="removerTarefa(item)" class="btn">
+        <app-icone [icone]="'dash'"></app-icone>
+      </button>
+
+      <button (click)="editarTarefa(item)" class="btn">
+        <app-icone [icone]="'edit'"></app-icone>
+      </button>
+    </li>
+
+    <li *ngIf="items.length == 0" class="li">No task's here!</li>
+    <li>
+      <div *ngIf="isEditing">
+        <div>
+          <input
+            type="text"
+            [(ngModel)]="itemEditado"
+            class="input-bar"
+            (keyup.enter)="salvarTarefa(itemEditado)"
+          />
+
+          <button (click)="salvarTarefa(itemEditado)" class="btn">
+            <app-icone [icone]="'check'"></app-icone>
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
