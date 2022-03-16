@@ -8,6 +8,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class AddItemComponent {
   @Output() adicionar = new EventEmitter();
   tarefa: string;
+  showIcon: boolean = false;
 
   addTarefa(text: string) {
     if (!this.tarefa) {

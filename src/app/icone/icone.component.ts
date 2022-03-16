@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-icone',
@@ -15,9 +15,9 @@ export class IconeComponent {
   edit: string;
   edit_fill: string;
   @Input() icone: string;
+  @Output() iconeMudado = new EventEmitter();
 
-  OnClick() {
-    this.plus = !this.plus;
-    console.log(this.plus);
+  mudarIcone() {
+    this.iconeMudado.emit();
   }
 }
